@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="leader" content="flores">
+        <meta name="memberOne" content="dorongon">
+        <meta name="memberTwo" content="rebaula">
+        <title>
+            Memory
+        </title>
+        <link rel="stylesheet" type="text/css" href="assets/gameDesign.css">
+        <link rel="stylesheet" type="text/css" href="assets/spriteSheet.css">
+        <script src="assets/gameLogic.js" defer></script>
+        <link rel="icon" href="assets/icon.png">
+    </head>
+    <body id="background">
+        <div class="game">
+            <div class="controls">
+                <button id="start" onclick="startGame()">Start</button>
+                <button id="stop" onclick="stopGame()">Stop</button>
+                <audio id="backgroundMusic" src="assets/song.mp3" preload="auto" loop></audio>
+                <audio id="loseSound" src="assets/gameover.wav" preload="auto"></audio>
+                <audio id="winSound" src="assets/success.wav" preload="auto"></audio>
+                <audio id="clickSound" src="assets/click.wav" preload="auto"></audio>
+                <audio id="matchSound" src="assets/coin.wav" preload="auto"></audio>
+                <div class="stats">
+                    <div class="highscore">Highscore: 00:00</div>
+                    <div class="timer">Time: <span id="timerCounter">00:00</span></div>
+                </div>
+                <div class="gameTitle">
+                    <div>Programming Languages</div>
+                    <div>Memory Game</div>
+                </div>
+            </div>
+            <div class="fullBox" id="fullBox">
+                <div class="board-container">
+                    <div id="cardContainer" class="board">
+                        <div class="card match1" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo1"></div>
+                            </div>
+                        </div>
+                        <div class="card match1" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo1"></div>
+                            </div>
+                        </div>
+                        <div class="card match2" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo2"></div>
+                            </div>
+                        </div>
+                        <div class="card match2" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo2"></div>
+                            </div>
+                        </div>
+                        <div class="card match3" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo3"></div>
+                            </div>
+                        </div>
+                        <div class="card match3" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo3"></div>
+                            </div>
+                        </div>
+                        <div class="card match4" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo4"></div>
+                            </div>
+                        </div>
+                        <div class="card match4" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo4"></div>
+                            </div>
+                        </div>
+                        <div class="card match5" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo5"></div>
+                            </div>
+                        </div>
+                        <div class="card match5" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo5"></div>
+                            </div>
+                        </div>
+                        <div class="card match6" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo6"></div>
+                            </div>
+                        </div>
+                        <div class="card match6" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo6"></div>
+                            </div>
+                        </div>
+                        <div class="card match7" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo7"></div>
+                            </div>
+                        </div>
+                        <div class="card match7" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo7"></div>
+                            </div>
+                        </div>
+                        <div class="card match8" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo8"></div>
+                            </div>
+                        </div>
+                        <div class="card match8" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo8"></div>
+                            </div>
+                        </div>
+                        <div class="card match9" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo9"></div>
+                            </div>
+                        </div>
+                        <div class="card match9" onclick="flipCard(this)">
+                            <div class="card-faces"> 
+                                <div class="card-front"></div>
+                                <div class="card-back logo9"></div>
+                            </div>
+                        </div>
+                        <div class="card match10" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo10"></div>
+                            </div>
+                        </div>
+                        <div class="card match10" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo10"></div>
+                            </div>
+                        </div>
+                        <div class="card match11" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo11"></div>
+                            </div>
+                        </div>
+                        <div class="card match11" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo11"></div>
+                            </div>
+                        </div>
+                        <div class="card match12" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo12"></div>
+                            </div>
+                        </div>
+                        <div class="card match12" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo12"></div>
+                            </div>
+                        </div>
+                        <div class="card match13" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo13"></div>
+                            </div>
+                        </div>
+                        <div class="card match13" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo13"></div>
+                            </div>
+                        </div>
+                        <div class="card match14" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo14"></div>
+                            </div>
+                        </div>
+                        <div class="card match14" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo14"></div>
+                            </div>
+                        </div>
+                        <div class="card match15" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo15"></div>
+                            </div>
+                        </div>
+                        <div class="card match15" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo15"></div>
+                            </div>
+                        </div>
+                        <div class="card match16" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo16"></div>
+                            </div>
+                        </div>
+                        <div class="card match16" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo16"></div>
+                            </div>
+                        </div>
+                        <div class="card match17" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo17"></div>
+                            </div>
+                        </div>
+                        <div class="card match17" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo17"></div>
+                            </div>
+                        </div>
+                        <div class="card match18" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo18"></div>
+                            </div>
+                        </div>
+                        <div class="card match18" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo18"></div>
+                            </div>
+                        </div>
+                        <div class="card match19" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo19"></div>
+                            </div>
+                        </div>
+                        <div class="card match19" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo19"></div>
+                            </div>
+                        </div>
+                        <div class="card match20" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo20"></div>
+                            </div>
+                        </div>
+                        <div class="card match20" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo20"></div>
+                            </div>
+                        </div>
+                        <div class="card match21" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo21"></div>
+                            </div>
+                        </div>
+                        <div class="card match21" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo21"></div>
+                            </div>
+                        </div>
+                        <div class="card match22" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo22"></div>
+                            </div>
+                        </div>
+                        <div class="card match22" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo22"></div>
+                            </div>
+                        </div>
+                        <div class="card match23" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo23"></div>
+                            </div>
+                        </div>
+                        <div class="card match23" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo23"></div>
+                            </div>
+                        </div>
+                        <div class="card match24" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo24"></div>
+                            </div>
+                        </div>
+                        <div class="card match24" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo24"></div>
+                            </div>
+                        </div>
+                        <div class="card match25" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo25"></div>
+                            </div>
+                        </div>
+                        <div class="card match25" onclick="flipCard(this)">
+                            <div class="card-faces">
+                                <div class="card-front"></div>
+                                <div class="card-back logo25"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="winScreen">
+                        <div class="winScreenContents">
+                            <div class="winScreenResults" id="winText"></div>
+                            <div class="restartButtonContainer">
+                                <button onclick="reloadPage()">Restart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="leaderboard">
+            <div class="leaderboardHeader">
+                Leaderboard
+            </div>
+            <div class="leaderboardInfo">
+                <div>Leaderboard has not been set.</div>
+            </div>
+        </div>
+    </body>
+</html>
